@@ -19,6 +19,9 @@ jacocoTestReport {
     }
 }
 
+ext {
+	set('testcontainersVersion', "1.17.6")
+}
 
 group = 'com.fissionlab.coe'
 version = '0.0.1-SNAPSHOT'
@@ -33,7 +36,17 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.mysql:mysql-connector-j'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Test containers dependencies
+	runtimeOnly 'org.postgresql:postgresql'
+	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'io.rest-assured:rest-assured'
+	testImplementation 'org.testcontainers:postgresql'
+	testImplementation 'org.testcontainers:testcontainers:1.17.3'
+	testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: '1.17.3'
 
 	//PACT Integration
 	testImplementation 'au.com.dius.pact:consumer:4.4.2'
@@ -73,3 +86,8 @@ pact {
 	}
 }
 
+dependencyManagement {
+	imports {
+		mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
+	}
+}
