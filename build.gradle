@@ -79,11 +79,6 @@ pact {
 	broker {
 		pactBrokerUrl = "http://localhost:9292"
 	}
-	serviceProviders {
-		UserServiceJUnit5 {
-			// empty
-		}
-	}
 }
 
 dependencyManagement {
