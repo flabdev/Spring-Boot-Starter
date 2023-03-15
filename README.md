@@ -3,7 +3,12 @@ This quick starter will guide you to configure and use Testcontainers in a Sprin
 
 ## 1. Setup Environment
 Make sure you have Java 8+ and a [compatible Docker environment](https://www.testcontainers.org/supported_docker_environment/) installed.
-If you are going to use Maven build tool then make sure Java 17+ is installed.
+If you are going to use Maven or gradle build tool then make sure Java 17 or higher version is installed.
+Make sure you have gradle 8 version
+jacoco 0.8.8 version
+sonarqube 3.5.0.2730 version
+Make sure that you have install sonarqube locally in your system with version 9.9
+
 
 For example:
 ```shell
@@ -20,6 +25,13 @@ Server: Docker Desktop 4.12.0 (85629)
   API version:      1.41 (minimum version 1.12)
   Go version:       go1.17.11
 ...
+
+To check java verion in  window use below command 
+java -version
+To check gradle version in window use below command 
+gradle -v
+
+
 ```
 
 ## 2. Run Tests
@@ -29,6 +41,33 @@ Run the command to run the tests.
 ```shell
 $ ./gradlew test //for Gradle
 $ ./mvnw verify  //for Maven
+
+To run Sonarqube Server locally in your window system 
+go to your sonarqube location then go to bin folder then go to windows-x86-64 
+open command prompt here and type 
+StartSonar.bat
+to start your sonar server
+To check wheather your sonarqube is up and running 
+go to your browser and typle below link (by default sonar server runs on 9000 port)
+http://localhost:9000 
+
+To build your jar and to create jacoco report run below command on cmd 
+gradle clean build
+To check yor jacoco report 
+go to your project folder go to build folder go to jacocoHtml 
+open index.html on browser
+
+To push your code to sonarqube server for static code analysis 
+type below command 
+gradlew sonar -Dsonar.projectKey=@YourProjectName -Dsonar.host.url=http://localhost:9000 -Dsonar.login=@YourKeyToken
+
+To check your code quality go to your browser
+where sonarqube is running http://localhost:9000
+go to your project and See the status of code
+
+
+
+
 ```
 
 The tests should pass.
