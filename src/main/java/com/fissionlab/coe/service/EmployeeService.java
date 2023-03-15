@@ -4,33 +4,31 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fissionlab.coe.SpringBootBaseProjectApplication;
 import com.fissionlab.coe.entity.Employee;
 import com.fissionlab.coe.exception.ResourceNotFoundException;
 import com.fissionlab.coe.repository.EmployeeRepository;
 
-@Service
-public class EmployeeService {
+import lombok.extern.log4j.Log4j2;
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeService.class);
+@Service
+@Log4j2
+public class EmployeeService {
 
 	 @Autowired
 	private EmployeeRepository employeeRepository;
 	
 	 public List<Employee> getAllEmployees() {
-		 LOGGER.info("Started with get employees");
+		 log.info("Started with get employees");
 
 	        return employeeRepository.findAll();
 	    }
 	 
 	 public Employee getEmployeeById(Long employeeId)
 		        throws ResourceNotFoundException {
-		 LOGGER.info("Started with get employees by id");
+		 log.info("Started with get employees by id");
 		 Employee employee = employeeRepository.findById(employeeId)
 		    		  .orElseThrow(()-> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
 		      return employee;

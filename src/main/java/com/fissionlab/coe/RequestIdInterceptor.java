@@ -22,7 +22,7 @@ public class RequestIdInterceptor implements HandlerInterceptor {
 		MDC.put("requestId", UUID.randomUUID().toString().replace("-","").substring(0,8));
 		final Map<String, String> pathVariables = (Map<String, String>) request
 				.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
-		String empId = pathVariables.get("id");
+		String empId = (pathVariables != null) ? pathVariables.get("id") : "";
 		MDC.put("id",(empId != null && !empId.isBlank()) ? empId : "N/A" );
 
 		return true;

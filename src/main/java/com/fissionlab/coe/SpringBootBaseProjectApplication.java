@@ -1,18 +1,16 @@
 package com.fissionlab.coe;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import lombok.extern.log4j.Log4j2;
 
 @SpringBootApplication
+@Log4j2
 public class SpringBootBaseProjectApplication {
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(SpringBootBaseProjectApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootBaseProjectApplication.class, args);
-		LOGGER.info("<<<================================  SPRING BOOT BASE PROJECT SERVER STARTED AND RUNNING ================================ >>>");
+		log.info("<<<================================  SPRING BOOT BASE PROJECT SERVER STARTED AND RUNNING ================================ >>>");
 	}
 
 }
