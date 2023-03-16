@@ -58,6 +58,13 @@ dependencies {
 	testImplementation 'au.com.dius.pact.provider:junit5:4.4.2'
 	testImplementation 'au.com.dius.pact.provider:junit5spring:4.4.2'
 	testImplementation 'org.junit-pioneer:junit-pioneer:2.0.0-RC1'
+	
+	//Lombok dependency
+	compileOnly 'org.projectlombok:lombok:1.18.26'
+	annotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+	testCompileOnly 'org.projectlombok:lombok:1.18.26'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
 }
 
 tasks.named('test') {
