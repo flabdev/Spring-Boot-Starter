@@ -35,6 +35,13 @@ gradle -v
 ```
 
 ## 2. Run Tests
+
+Before Running the Project We must change the username and password for mysql in application.properties file 
+`
+spring.datasource.username=@yourname
+spring.datasource.password=@Password
+`
+
 The sample project uses JUnit tests and Testcontainers to run them against actual databases running in containers.
 
 Run the command to run the tests.
