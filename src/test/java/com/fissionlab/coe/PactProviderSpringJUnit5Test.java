@@ -6,6 +6,7 @@ import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.State;
 import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
 import au.com.dius.pact.provider.spring.junit5.MockMvcTestTarget;
+import com.fissionlab.coe.controller.UserController;
 import com.fissionlab.coe.repository.UserRepository;
 import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +19,7 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(excludeAutoConfiguration = {SecurityAutoConfiguration.class})
+@WebMvcTest(controllers = UserController.class)
 @Provider("UserServiceJUnit5")
 @PactFolder("build/pacts")
 public class PactProviderSpringJUnit5Test {
