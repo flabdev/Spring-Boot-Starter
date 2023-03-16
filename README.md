@@ -39,6 +39,7 @@ gradle -v
 Before Running the Project We must change the username and password for mysql in application.properties file 
 `
 spring.datasource.username=@yourname
+
 spring.datasource.password=@Password
 `
 
