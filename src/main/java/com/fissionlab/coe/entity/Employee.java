@@ -12,7 +12,7 @@ import lombok.*;
 @Entity
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
 @ToString
 public class Employee {
 

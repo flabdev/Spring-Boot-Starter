@@ -8,9 +8,11 @@
     import au.com.dius.pact.consumer.junit5.PactTestFor;
     import au.com.dius.pact.core.model.V4Pact;
     import au.com.dius.pact.core.model.annotations.Pact;
+    import com.fissionlab.coe.controller.UserController;
     import com.fissionlab.coe.model.User;
     import org.junit.jupiter.api.Test;
     import org.junit.jupiter.api.extension.ExtendWith;
+    import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
     import org.springframework.boot.web.client.RestTemplateBuilder;
     import org.springframework.web.client.RestTemplate;
 
@@ -19,7 +21,6 @@
     import java.util.Map;
 
     import static org.assertj.core.api.Assertions.assertThat;
-
     @ExtendWith(PactConsumerTestExt.class)
     public class PactConsumerJUnit5Test {
 
