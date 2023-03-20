@@ -11,19 +11,25 @@ import com.fissionlab.coe.entity.Employee;
 import com.fissionlab.coe.exception.ResourceNotFoundException;
 import com.fissionlab.coe.repository.EmployeeRepository;
 
+import lombok.extern.log4j.Log4j2;
+
 @Service
+@Log4j2
 public class EmployeeService {
 
 	 @Autowired
 	private EmployeeRepository employeeRepository;
 	
 	 public List<Employee> getAllEmployees() {
+		 log.info("Started with get employees");
+
 	        return employeeRepository.findAll();
 	    }
 	 
 	 public Employee getEmployeeById(Long employeeId)
 		        throws ResourceNotFoundException {
-		      Employee employee = employeeRepository.findById(employeeId)
+		 log.info("Started with get employees by id");
+		 Employee employee = employeeRepository.findById(employeeId)
 		    		  .orElseThrow(()-> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
 		      return employee;
 		 

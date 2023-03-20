@@ -3,9 +3,14 @@ package com.fissionlab.coe.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import lombok.*;
 
 @Entity
 @Table(name = "todos")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Todo {
     @Id
     @GeneratedValue(generator = "uuid")
@@ -21,47 +26,6 @@ public class Todo {
     @Column(name = "order_number")
     private Integer order;
 
-    public Todo() {
-    }
-
-    public Todo(String id, String title, Boolean completed, Integer order) {
-        this.id = id;
-        this.title = title;
-        this.completed = completed;
-        this.order = order;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setCompleted(Boolean completed) {
-        this.completed = completed;
-    }
-
-    public Boolean getCompleted() {
-        return completed;
-    }
-
-    public Integer getOrder() {
-        return order;
-    }
-
-    public void setOrder(Integer order) {
-        this.order = order;
-    }
 
     public String getUrl() {
         return ServletUriComponentsBuilder.fromCurrentContextPath().toUriString() + "/todos/" + this.getId();

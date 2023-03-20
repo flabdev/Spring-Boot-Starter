@@ -1,9 +1,81 @@
+# This is a Sample SpringBoot Project
+
+### Prerequisite
+JAVA 17 or Higher Version
+
+MySql 8.x Version 
+
+SonarQube 9.9 Version
+
+STS or IntelliJ Idea or Eclipse IDE
+
+**Clone the project to specified folder and import it into Your Favourite IDE**
+
+```bash
+git clone https://github.com/flabdev/Spring-Boot-Starter.git
+```
+
+**Setting Up Local Properties File**
+
+In the cloned repository, navigate to src/main/resources and copy the application.properties file 
+Past the file in any location on your computer other than the project folder and name it application-local.properties 
+add the mysql details for the project 
+
+Change the datasourcename and datasourcePassword in the file to below values 
+
+```bash
+
+spring.datasource.url=@ConnectionURL 
+spring.datasource.username=@UserName
+spring.datasource.password=@Password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+```
+## Project execution 
+
+Navigate to root folder and open the terminal and execute below command 
+
+```bash
+gradle clean build
+
+```
+It will generate JaCoco report as well as jar for our application 
+
+jacoco report location build/jacocoHtml/index.html
+jar file location build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar
+
+Execute the below command
+```bash
+java -jar build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar --spring.profile.active=local --spring.config.location=@YourApplicationPropertiesLocation
+```
+
+App Will be run on port 9090 
+
+Open the Postman and verify 
+
+## [Integrate sonarqube into the springboot project](https://github.com/flabdev/Spring-Boot-Starter/wiki)
+
+**We need JAVA 11 or 17 for sonarqube**
+
+**To run sonarqube**
+
+```bash
+./gradlew sonar -D "sonar.projectKey=Spring-Boot-Starter" -D "sonar.host.url=http://localhost:9000" -D "sonar.login={token generated while integeration}"
+```
+To check your code quality go to your browser
+where sonarqube is running http://localhost:9000
+go to your project and See the status of code
+
+
+
+
 # Testcontainers SpringBoot
 This quick starter will guide you to configure and use Testcontainers in a SpringBoot project.
 
 ## 1. Setup Environment
 Make sure you have Java 8+ and a [compatible Docker environment](https://www.testcontainers.org/supported_docker_environment/) installed.
-If you are going to use Maven build tool then make sure Java 17+ is installed.
+If you are going to use Maven or gradle build tool then make sure Java 17 or higher version is installed.
+
+
 
 For example:
 ```shell
@@ -20,9 +92,12 @@ Server: Docker Desktop 4.12.0 (85629)
   API version:      1.41 (minimum version 1.12)
   Go version:       go1.17.11
 ...
+
 ```
 
 ## 2. Run Tests
+
+
 The sample project uses JUnit tests and Testcontainers to run them against actual databases running in containers.
 
 Run the command to run the tests.
