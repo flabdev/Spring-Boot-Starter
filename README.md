@@ -1,3 +1,30 @@
+# This is a Sample SpringBoot Project
+
+### Prerequisite
+JAVA 17 or Higher Version
+
+MySql 8.x Version
+
+SonarQube 9.9 Version 
+
+Gradle 8.x version 
+
+STS or IntelliJ Idea or Eclipse IDE 
+
+**Clone the project to specified folder and import it into Android Studio**
+
+```bash
+git clone https://github.com/preethiboienwar/COEtask.git
+```
+
+
+
+
+
+
+
+
+
 # Testcontainers SpringBoot
 This quick starter will guide you to configure and use Testcontainers in a SpringBoot project.
 
