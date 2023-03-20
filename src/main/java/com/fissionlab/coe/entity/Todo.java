@@ -3,6 +3,7 @@ package com.fissionlab.coe.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import lombok.*;
 
 @Entity
 @Table(name = "todos")
