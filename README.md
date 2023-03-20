@@ -1,3 +1,85 @@
+# This is a Sample SpringBoot Project
+
+### Prerequisite
+JAVA 17 or Higher Version
+
+MySql 8.x Version 
+
+SonarQube 9.9 Version
+
+STS or IntelliJ Idea or Eclipse IDE
+
+**Clone the project to specified folder and import it into Your Favourite IDE**
+
+```bash
+git clone https://github.com/flabdev/Spring-Boot-Starter.git
+```
+
+**Setting Up Local Properties File**
+
+In the cloned repository, navigate to src/main/resources and copy the application.properties file 
+Past the file in any location on your computer other than the project folder and name it application-local.properties 
+add the mysql details for the project 
+
+Change the datasourcename and datasourcePassword in the file to below values 
+
+```bash
+
+spring.datasource.url=@ConnectionURL 
+spring.datasource.username=@UserName
+spring.datasource.password=@Password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+```
+## Project execution 
+
+Navigate to root folder and open the terminal and execute below command 
+
+```bash
+gradle clean build
+
+```
+It will generate JaCoco report as well as jar for our application 
+
+jacoco report location build/jacocoHtml/index.html
+jar file location build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar
+
+Execute the below command
+```bash
+java -jar build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar --spring.profile.active=local --spring.config.location=@YourApplicationPropertiesLocation
+```
+
+App Will be run on port 9090 
+
+Open the Postman and verify 
+
+## [Integrate sonarqube into the springboot project](https://github.com/flabdev/Spring-Boot-Starter/wiki)
+
+**We need JAVA 11 or 17 for sonarqube**
+
+**To run sonarqube**
+
+```bash
+./gradlew sonar -D "sonar.projectKey=Spring-Boot-Starter" -D "sonar.host.url=http://localhost:9000" -D "sonar.login={token generated while integeration}"
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Testcontainers SpringBoot
 This quick starter will guide you to configure and use Testcontainers in a SpringBoot project.
 
