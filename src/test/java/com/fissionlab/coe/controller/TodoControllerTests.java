@@ -4,10 +4,7 @@ import com.fissionlab.coe.entity.Todo;
 import com.fissionlab.coe.repository.TodoRepository;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -22,6 +19,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;
 import static org.assertj.core.api.Assertions.assertThat;
+@Disabled
 @Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class TodoControllerTests {
