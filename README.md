@@ -85,6 +85,100 @@ where sonarqube is running http://localhost:9000
 go to your project and See the status of code
 
 
+# Dockerizing Spring-Boot-Starter project 
+
+Step1:  
+pull the mysql image from docker hub
+```bash
+docker pull mysql
+```
+
+Step2:  
+create a docker network to communicate Springboot app and MySql database
+
+```bash
+docker network create springboot-mysql-net
+```
+To verify
+
+```bash
+docker network ls
+```
+
+Step3:
+Run the mysql container in the network
+```bash
+docker run --name mysqldb --network springboot-mysql-net -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=student -e MYSQL_USER=sa -e MYSQL_PASSWORD=1234 -d mysql:latest
+```
+To verify
+```bash
+docker ps
+```
+
+Step4:
+Run Mysql in interactive mode
+
+```bash
+docker exec -it [containerid] bash
+```
+after that type
+
+```bash
+mysql -usa -p1234
+```
+
+
+Step5:
+update application.properties file
+
+```bash
+spring.datasource.driver-class-name =com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://mysqldb:3306/student
+spring.datasource.username=sa
+spring.datasource.password=1234
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+server.port=9090
+
+```
+
+Step6:
+Build the spring boot docker image 
+in IntelliJ Idea terminal
+
+```bash
+docker build -t springbootstarter .
+```
+To verify
+
+```bash
+docker images
+```
+Step7:
+Start the springboot container on the same network
+
+
+```bash
+docker run --network springboot-mysql-net --name springboot-container -p 9090:9090 -d springbootstarter
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
