@@ -10,14 +10,6 @@ SonarQube 9.9 Version
 
 Gradle 8.x version 
 
-STS or IntelliJ Idea or Eclipse IDE 
-
-**Clone the project to specified folder and import it into Android Studio**
-
-```bash
-git clone https://github.com/preethiboienwar/COEtask.git
-```
-
 
 
 
