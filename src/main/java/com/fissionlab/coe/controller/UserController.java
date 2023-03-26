@@ -1,8 +1,10 @@
 package com.fissionlab.coe.controller;
 
+import com.fissionlab.coe.config.EndPointConfig;
 import com.fissionlab.coe.model.User;
 import com.fissionlab.coe.repository.UserRepository;
 
+import lombok.Value;
 import lombok.extern.log4j.Log4j2;
 
 import org.springframework.http.ResponseEntity;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping(value = EndPointConfig.USER_CONFIGURATOR)
 @Log4j2
 public class UserController {
 
@@ -30,7 +32,7 @@ public class UserController {
         return userRepository.getAllUsers();
     }
 
-    @GetMapping("{id}")
+    @GetMapping(value =  EndPointConfig.GET_USER_BY_ID)
     public ResponseEntity<User> getUser(@PathVariable("id") int id) {
         return userRepository.getUser(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
