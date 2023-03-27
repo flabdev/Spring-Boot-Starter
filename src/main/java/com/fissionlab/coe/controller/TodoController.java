@@ -1,5 +1,6 @@
 package com.fissionlab.coe.controller;
 
+import com.fissionlab.coe.config.EndPointConfig;
 import com.fissionlab.coe.entity.Todo;
 import com.fissionlab.coe.exception.TodoNotFoundException;
 import com.fissionlab.coe.repository.TodoRepository;
@@ -9,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/todos")
+@RequestMapping(value = EndPointConfig.TODO_CONFIGURATOR)
 public class TodoController {
     private final TodoRepository repository;
 
@@ -22,7 +23,8 @@ public class TodoController {
         return repository.findAll();
     }
 
-    @GetMapping("/{id}")
+
+    @GetMapping(value = EndPointConfig.GET_BY_ID)
     public ResponseEntity<Todo> getById(@PathVariable String id) {
         return repository.findById(id)
                 .map(ResponseEntity::ok)
@@ -39,23 +41,23 @@ public class TodoController {
                 .body(savedTodo);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping(value = EndPointConfig.UPDATE_TODO)
     public ResponseEntity<Todo> update(@PathVariable String id, @Valid @RequestBody Todo todo) {
         Todo existingTodo = repository.findById(id).orElseThrow(() -> new TodoNotFoundException(id));
-        if(todo.getCompleted() != null) {
+        if( todo.getCompleted() != null) {
             existingTodo.setCompleted(todo.getCompleted());
         }
-        if(todo.getOrder() != null) {
+        if( todo.getOrder() != null) {
             existingTodo.setOrder(todo.getOrder());
         }
-        if(todo.getTitle() != null) {
+        if( todo.getTitle() != null) {
             existingTodo.setTitle(todo.getTitle());
         }
         Todo updatedTodo = repository.save(existingTodo);
         return ResponseEntity.ok(updatedTodo);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(value = EndPointConfig.DELETE_TODO_BY_ID)
     public ResponseEntity<Void> deleteById(@PathVariable String id) {
         Todo todo = repository.findById(id).orElseThrow(() -> new TodoNotFoundException(id));
         repository.delete(todo);

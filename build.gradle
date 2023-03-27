@@ -74,7 +74,7 @@ tasks.named('test') {
 
 sonarqube {
 	properties {
-		property "sonar.projectName", "spring-project-learning"
+		property "sonar.projectName", "Spring-Boot-Starter"
 //		property "sonar.branch.name", "main"
        // property 'sonar.exclusions', "**/com/fissionlabs/coe/**"
        // property 'sonar.exclusions', "src/**/test/**/*" 
