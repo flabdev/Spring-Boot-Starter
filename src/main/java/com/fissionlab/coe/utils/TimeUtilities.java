@@ -31,7 +31,7 @@ public class TimeUtilities {
         return sdfDate.format(Date.from(utc.toInstant()));
     }
 
-    public static String getDateMMDDYYYY(Date date){
+    public static String getDateMMDDYYYY(Date date) {
         SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdfDate.format(date);
     }
