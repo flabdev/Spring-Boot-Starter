@@ -5,29 +5,29 @@ import jakarta.servlet.http.PushBuilder;
 public class EndPointConfig {
 
 
-public final  static  String  WELCOME = "/welcome";
+public static final String  WELCOME = "/welcome";
 
-public final  static  String API_V1= "/api/v1";
-public  final  static  String API_V2= "/api/v2";
+public static final String API_V1= "/api/v1";
+public static final String API_V2= "/api/v2";
 
-public  final  static  String GET_ALL_EMPLOYEES= "/employees";
-public  final  static  String  SAVE_EMPLOYEE= "/employees";
-public  final  static  String GET_EMPLOYEE_BY_ID= "/employees/{id}";
+public static final String GET_ALL_EMPLOYEES= "/employees";
+public static final String  SAVE_EMPLOYEE= "/employees";
+public static final String GET_EMPLOYEE_BY_ID= "/employees/{id}";
 
-public  final  static  String UPDATE_EMPLOYEE= "/employees/{id}";
+public  static final String UPDATE_EMPLOYEE= "/employees/{id}";
 
-public  final  static  String DELETE_EMPLOYEE_BY_ID= "/employees/{id}";
+public static final String DELETE_EMPLOYEE_BY_ID= "/employees/{id}";
 
-public  final  static  String TODO_CONFIGURATOR = "/todos";
+public static final String TODO_CONFIGURATOR = "/todos";
 
-public  final  static  String   GET_BY_ID = "/{id}";
+public  static final String   GET_BY_ID = "/{id}";
 
-public  final  static  String  UPDATE_TODO= "/{id}";
+public static final String  UPDATE_TODO= "/{id}";
 
-public final  static  String DELETE_TODO_BY_ID= "/{id}";
+public static final String DELETE_TODO_BY_ID= "/{id}";
 
-public final  static  String USER_CONFIGURATOR= "/users";
+public static final String USER_CONFIGURATOR= "/users";
 
-public  final  static  String  GET_USER_BY_ID = "{id}";
+public static final String  GET_USER_BY_ID = "{id}";
 
 }

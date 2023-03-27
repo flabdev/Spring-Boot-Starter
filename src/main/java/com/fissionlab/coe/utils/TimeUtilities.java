@@ -36,6 +36,4 @@ public class TimeUtilities {
         return sdfDate.format(date);
     }
 
-
-
 }

@@ -44,13 +44,13 @@ public class TodoController {
     @PatchMapping(value = EndPointConfig.UPDATE_TODO)
     public ResponseEntity<Todo> update(@PathVariable String id, @Valid @RequestBody Todo todo) {
         Todo existingTodo = repository.findById(id).orElseThrow(() -> new TodoNotFoundException(id));
-        if(todo.getCompleted() != null) {
+        if( todo.getCompleted() != null) {
             existingTodo.setCompleted(todo.getCompleted());
         }
-        if(todo.getOrder() != null) {
+        if( todo.getOrder() != null) {
             existingTodo.setOrder(todo.getOrder());
         }
-        if(todo.getTitle() != null) {
+        if( todo.getTitle() != null) {
             existingTodo.setTitle(todo.getTitle());
         }
         Todo updatedTodo = repository.save(existingTodo);
