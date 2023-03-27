@@ -14,21 +14,21 @@ public class Utility {
             Pattern.compile("^\\+[0-9]{1,3}[0-9]{11,14}(?:x.+)?$", Pattern.CASE_INSENSITIVE);
     public static final Pattern NEW_VALID_PHONE_NUMBER_REGEX =
             Pattern.compile("^\\+[0-9]{1,3}[0-9]{10,14}(?:x.+)?$", Pattern.CASE_INSENSITIVE);
-    public static boolean validateEmail(String email){
-        if (email == null){
+    public static boolean validateEmail(String email) {
+        if (email == null) {
             return false;
         }
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
-        if (!matcher.find()){
+        if (!matcher.find()) {
             return false;
         }
         return true;
     }
 
-    public static boolean validatePhoneNumber(String phoneNumber){
+    public static boolean validatePhoneNumber(String phoneNumber) {
         Matcher matcher = VALID_PHONE_NUMBER_REGEX.matcher(phoneNumber);
-        Matcher new_matcher = NEW_VALID_PHONE_NUMBER_REGEX.matcher(phoneNumber);
-        if (!new_matcher.find() && !matcher.find()){
+        Matcher newMatcher = NEW_VALID_PHONE_NUMBER_REGEX.matcher(phoneNumber);
+        if (!newMatcher.find() && !matcher.find()) {
             return false;
         }
         return true;

@@ -31,11 +31,10 @@ public class EmployeeService {
 		 
 		    }
 
-	 public Employee createEmployee( Employee employee) {
+	 public Employee createEmployee(Employee employee) {
 	        return employeeRepository.save(employee);
 	    }
 
-	
 	    public Employee updateEmployee(Long employeeId,
 	         Employee employeeDetails) throws ResourceNotFoundException {
 	        Employee employee = employeeRepository.findById(employeeId)

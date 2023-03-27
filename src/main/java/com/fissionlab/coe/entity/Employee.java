@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
-@Table(name= "employee")
+@Table(name = "employee")
 @Entity
 @Data
 @AllArgsConstructor
@@ -20,13 +20,13 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@Column(name= "first_name", nullable = false)
+	@Column(name = "first_name", nullable = false)
     private String firstName;
 	
 	@Column(name =  "last_name", nullable = false)
     private String lastName;
 	
-	@Column(name= "email_address", nullable = false)
+	@Column(name = "email_address", nullable = false)
     private String emailId;
     
  
