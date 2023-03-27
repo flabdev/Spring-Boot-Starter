@@ -3,14 +3,11 @@ package com.fissionlab.coe.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.fissionlab.coe.entity.Employee;
 import com.fissionlab.coe.exception.ResourceNotFoundException;
 import com.fissionlab.coe.repository.EmployeeRepository;
-
 import lombok.extern.log4j.Log4j2;
 
 @Service
@@ -26,8 +23,7 @@ public class EmployeeService {
 	        return employeeRepository.findAll();
 	    }
 	 
-	 public Employee getEmployeeById(Long employeeId)
-		        throws ResourceNotFoundException {
+	 public Employee getEmployeeById(Long employeeId) throws ResourceNotFoundException {
 		 log.info("Started with get employees by id");
 		 Employee employee = employeeRepository.findById(employeeId)
 		    		  .orElseThrow(()-> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));

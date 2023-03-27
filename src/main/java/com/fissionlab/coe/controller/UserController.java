@@ -3,10 +3,7 @@ package com.fissionlab.coe.controller;
 import com.fissionlab.coe.config.EndPointConfig;
 import com.fissionlab.coe.model.User;
 import com.fissionlab.coe.repository.UserRepository;
-
-import lombok.Value;
 import lombok.extern.log4j.Log4j2;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -2,7 +2,6 @@ package com.fissionlab.coe.controller;
 
 import java.util.List;
 import java.util.Map;
-
 import com.fissionlab.coe.config.EndPointConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.fissionlab.coe.entity.Employee;
 import com.fissionlab.coe.exception.ResourceNotFoundException;
 import com.fissionlab.coe.service.EmployeeService;
@@ -57,7 +55,6 @@ public class EmployeeController {
 		Employee employee = employeeService.updateEmployee(employeeId, employeeDetails);
 		return ResponseEntity.ok(employee);
 	}
-
 
 	@DeleteMapping(value =  EndPointConfig.DELETE_EMPLOYEE_BY_ID)
 	public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long employeeId)

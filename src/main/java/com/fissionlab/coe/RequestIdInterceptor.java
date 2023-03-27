@@ -2,11 +2,8 @@ package com.fissionlab.coe;
 
 import java.util.Map;
 import java.util.UUID;
-
-import org.hibernate.Filter;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.HandlerMapping;
 
@@ -24,7 +21,6 @@ public class RequestIdInterceptor implements HandlerInterceptor {
 				.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
 		String empId = (pathVariables != null) ? pathVariables.get("id") : "";
 		MDC.put("id",(empId != null && !empId.isBlank()) ? empId : "N/A" );
-
 		return true;
 	}
 
@@ -32,6 +28,4 @@ public class RequestIdInterceptor implements HandlerInterceptor {
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
 		MDC.remove("requestId");
 	}
-
-
 }
