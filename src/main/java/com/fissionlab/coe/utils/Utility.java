@@ -25,14 +25,7 @@ public class Utility {
         return true;
     }
 
-    public static boolean validatePhoneNumber(String phoneNumber) {
-        Matcher matcher = VALID_PHONE_NUMBER_REGEX.matcher(phoneNumber);
-        Matcher newMatcher = NEW_VALID_PHONE_NUMBER_REGEX.matcher(phoneNumber);
-        if (!newMatcher.find() && !matcher.find()) {
-            return false;
-        }
-        return true;
-    }
+
     public static long getRandomLongValue() {
         long number = (long) Math.floor(Math.random() * 900_000L) + 100_000L;
         return number;
