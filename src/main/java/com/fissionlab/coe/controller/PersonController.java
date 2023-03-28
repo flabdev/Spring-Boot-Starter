@@ -47,7 +47,7 @@ public class PersonController {
             @ApiResponse(description = "Internal error", responseCode = "500", content = @Content)
         }
     )
-    public ResponseEntity<Iterable<Person>> all() {
+    public ResponseEntity<Iterable<Person>> getAllPersons() {
         return ResponseEntity.ok(personList);
     }
 
@@ -72,7 +72,7 @@ public class PersonController {
         }
     )
 
-    public ResponseEntity<Person> get(@PathVariable("id") @Parameter(description = "The Id of the person to find.") UUID id) {
+    public ResponseEntity<Person> getPersonById(@PathVariable("id") @Parameter(description = "The Id of the person to find.") UUID id) {
 
         Person person = getPerson(id);
 
@@ -109,7 +109,7 @@ public class PersonController {
             @ApiResponse(description = "Internal error", responseCode = "500", content = @Content)
         }
     )
-    public ResponseEntity<Person> post(@RequestBody Person person) {
+    public ResponseEntity<Person> savePerson(@RequestBody Person person) {
         Person saved = new Person(
                 UUID.randomUUID(),
                 person.getFirstName(),
@@ -141,7 +141,7 @@ public class PersonController {
             @ApiResponse(description = "Internal error", responseCode = "500", content = @Content)
         }
     )
-    public ResponseEntity<Person> put(
+    public ResponseEntity<Person> updatePerson(
         @PathVariable("id") @Parameter(description = "The Id of the person to update.") UUID id,
         @RequestBody Person person
     ) {
