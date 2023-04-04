@@ -10,9 +10,9 @@ SonarQube 9.9 Version
 
 Gradle 8.x version 
 
+Checkstyle 7.8.1 version
 
-
-
+PMD 6.37.0 version 
 
 MySql 8.x Version 
 
@@ -46,13 +46,15 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 Navigate to root folder and open the terminal and execute below command 
 
 ```bash
-gradle clean build
+gradle clean build or gradlew clean build
 
 ```
-It will generate JaCoco report as well as jar for our application 
+It will generate JaCoco report, checkstyle report, pmd report as well as jar for our application 
 
 jacoco report location build/jacocoHtml/index.html
 jar file location build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar
+checkstyle report location build/reports/checkstyle/main.html
+pmd report location pmd/build/reports/pmd/main.html
 
 Execute the below command
 ```bash
