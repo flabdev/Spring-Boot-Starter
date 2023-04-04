@@ -1,6 +1,86 @@
-# This is a Sample SpringBoot Project
+# Spring Boot application template
 
-### Prerequisite
+## Purpose
+
+The purpose of this template is to speed up the creation of new Spring applications within Fission Labs
+and help keep the same standards across multiple teams. If you need to create a new app, you can
+simply use this one as a starting point and build on top of it.
+
+## What's inside
+
+The template is a working application with a minimal setup. It contains:
+ * application skeleton
+ * common plugins and libraries
+ * docker setup
+ * code quality tools already set up
+
+## Plugins
+
+The template contains the following plugins:
+
+  * checkstyle
+
+    https://docs.gradle.org/current/userguide/checkstyle_plugin.html
+
+    Performs code style checks on Java source files using Checkstyle and generates reports from these checks.
+    The checks are included in gradle's *check* task (you can run them by executing `./gradlew check` command).
+
+  * pmd
+
+    https://docs.gradle.org/current/userguide/pmd_plugin.html
+
+    Performs static code analysis to finds common programming flaws. Included in gradle `check` task.
+
+
+  * jacoco
+
+    https://docs.gradle.org/current/userguide/jacoco_plugin.html
+
+    Provides code coverage metrics for Java code via integration with JaCoCo.
+    You can create the report by running the following command:
+
+    ```bash
+      ./gradlew jacocoTestReport
+    ```
+
+    The report will be created in build/reports subdirectory in your project directory.
+
+  * io.spring.dependency-management
+
+    https://github.com/spring-gradle-plugins/dependency-management-plugin
+
+    Provides Maven-like dependency management. Allows you to declare dependency management
+    using `dependency 'groupId:artifactId:version'`
+    or `dependency group:'group', name:'name', version:version'`.
+
+  * org.springframework.boot
+
+    http://projects.spring.io/spring-boot/
+
+    Reduces the amount of work needed to create a Spring application
+    
+  * Pacts
+    
+    https://docs.pact.io/
+    
+    Pact is a code-first tool for testing HTTP and message integrations using contract tests
+
+ * Testcontainers
+    
+    https://www.testcontainers.org/#about-testcontainers-for-java
+    
+    Testcontainers for Java is a Java library that supports JUnit tests, providing lightweight, 
+    throwaway instances of common databases, Selenium web      browsers, or anything else that can run in a Docker container
+   
+  
+ * SonarQube
+    
+    https://docs.sonarqube.org/latest/analyzing-source-code/languages/java/
+    
+    SonarQube is a self-managed, automatic code review tool that systematically helps you deliver clean code
+
+
+## Prerequisite
 JAVA 17 or Higher Version
 
 
