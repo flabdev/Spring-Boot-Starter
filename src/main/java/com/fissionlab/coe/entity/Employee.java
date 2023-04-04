@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
-@Table(name= "employee")
+@Table(name = "employee")
 @Entity
 @Data
 @AllArgsConstructor
@@ -17,16 +17,16 @@ import lombok.*;
 public class Employee {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name= "first_name", nullable = false)
+	@Column(name = "first_name", nullable = false)
     private String firstName;
 	
 	@Column(name =  "last_name", nullable = false)
     private String lastName;
 	
-	@Column(name= "email_address", nullable = false)
+	@Column(name = "email_address", nullable = false)
     private String emailId;
     
  
