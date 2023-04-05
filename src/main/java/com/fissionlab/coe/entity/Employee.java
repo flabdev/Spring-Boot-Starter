@@ -28,12 +28,14 @@ public class Employee {
 	
 	@Column(name = "email_address", nullable = false)
     private String emailId;
-    
- 
-    public Employee(String firstName, String lastName, String emailId) {
+
+    @Column(name =  "phone")
+    private  String phone;
+    public Employee(String firstName, String lastName, String emailId, String phone) {
          this.firstName = firstName;
          this.lastName = lastName;
          this.emailId = emailId;
+         this.phone = phone;
     }    
 
     }
