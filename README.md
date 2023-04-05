@@ -13,6 +13,7 @@ The template is a working application with a minimal setup. It contains:
  * common plugins and libraries
  * docker setup
  * code quality tools already set up
+ * testing libraries
 
 ## Plugins
 
