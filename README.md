@@ -24,13 +24,33 @@ The template contains the following plugins:
     https://docs.gradle.org/current/userguide/checkstyle_plugin.html
 
     Performs code style checks on Java source files using Checkstyle and generates reports from these checks.
-    The checks are included in gradle's *check* task (you can run them by executing `./gradlew check` command).
+    
+   We can generate the report by running the below command:
+
+   
+```    
+  ./gradlew checkstyleMain
+  ```
+ 
+  The report will be created in build/reports/checkstyle/main.html location in your project directory.
+ 
+
+    
 
   * pmd
 
     https://docs.gradle.org/current/userguide/pmd_plugin.html
 
     Performs static code analysis to finds common programming flaws. Included in gradle `check` task.
+       
+   We can generate the report by running the below command:
+
+ ```    
+  ./gradlew pmdMain
+  ```
+ 
+  The report will be created in build/reports/pmd/main.html location in your project directory.
+ 
 
 
   * jacoco
@@ -44,7 +64,7 @@ The template contains the following plugins:
       ./gradlew jacocoTestReport
     ```
 
-    The report will be created in build/reports subdirectory in your project directory.
+    The report will be created in build/jacocoHtml/index.html location in your project directory.
 
   * io.spring.dependency-management
 
@@ -79,6 +99,17 @@ The template contains the following plugins:
     https://docs.sonarqube.org/latest/analyzing-source-code/languages/java/
     
     SonarQube is a self-managed, automatic code review tool that systematically helps you deliver clean code
+    
+```    
+./gradlew sonar -D "sonar.projectKey=Spring-Boot-Starter" -D "sonar.host.url=http://localhost:9000" -D "sonar.login={token generated while integeration}"
+  
+  ```
+
+
+To check your code quality go to your browser
+where sonarqube is running http://localhost:9000
+go to your project and See the status of code
+
 
 
 ## Prerequisite
@@ -109,39 +140,76 @@ git clone https://github.com/flabdev/Spring-Boot-Starter.git
 
 **Setting Up Local Properties File**
 
-In the cloned repository, navigate to src/main/resources and copy the application.properties file 
-Past the file in any location on your computer other than the project folder and name it application-local.properties 
-add the mysql details for the project 
+In Your project go to src/main/resources 
+Copy the application.properties file in any location, rename to application-local.properties and add the necessary values in the file to setup mysql 
+and other service
 
-Change the datasourcename and datasourcePassword in the file to below values 
 
-```bash
-
-spring.datasource.url=@ConnectionURL 
-spring.datasource.username=@UserName
-spring.datasource.password=@Password
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-```
 ## Project execution 
 
 Navigate to root folder and open the terminal and execute below command 
 
-```bash
-gradle clean build or gradlew clean build
+To generate checkstyle report 
+
+We can run below command: 
+
+```  
+./gradlew checkstyleMain
+```
+
+ The report will be created in build/reports/chekstyle/main.html location in your project directory.
+
+To generate pmd report
+
+We can run below command: 
 
 ```
-It will generate JaCoco report, checkstyle report, pmd report as well as jar for our application 
+./gradlew pmdMain
+```
+
+
+   The report will be created in build/reports/pmd/main.html location in your project directory.
+    
+
+To generate jacoco report 
+
+We can run below command:
+
+```
+./gradlew jacocoTestReport
+
+```
+
+
+The report will be created in build/jacocoHtml/index.html location in your project directory.
+
+To create .jar file of our application we can use below command
+
+```
+gradle clean build or gradlew clean build
+```
+
+It will generate  .jar file for our application in build/libs/ subdirectory. 
+
+along with this it will also generate JaCoco report, checkstyle report, pmd report for our application in below location  
 
 jacoco report location build/jacocoHtml/index.html
-jar file location build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar
 checkstyle report location build/reports/checkstyle/main.html
 pmd report location pmd/build/reports/pmd/main.html
+jar file location build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar
 
-Execute the below command
+
+To Run our application execute the below command:
+
 ```bash
 java -jar build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar --spring.profile.active=local --spring.config.location=@YourApplicationPropertiesLocation
 ```
 
+or 
+
+```
+gradle bootRun --spring.profile.active=local --spring.config.location=@YourApplicationPropertiesLocation
+```
 App Will be run on port 9090 
 
 Open the Postman and verify 
@@ -181,7 +249,7 @@ docker network ls
 ```
 
 Step3:
-Run the mysql container in the network
+Run the mysql container in the network in created network in detach mode
 ```bash
 docker run --name mysqldb --network springboot-mysql-net -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=student -e MYSQL_USER=sa -e MYSQL_PASSWORD=1234 -d mysql:latest
 ```
@@ -204,10 +272,10 @@ mysql -usa -p1234
 
 
 Step5:
-update application.properties file
+update application.properties file of our application according to docker mysql configuration and provide username, password and url according to docker mysql configuration 
 
 ```bash
-spring.datasource.driver-class-name =com.mysql.cj.jdbc.Driver
+
 spring.datasource.url=jdbc:mysql://mysqldb:3306/student
 spring.datasource.username=sa
 spring.datasource.password=1234
@@ -219,8 +287,14 @@ server.port=9090
 ```
 
 Step6:
-Build the spring boot docker image 
-in IntelliJ Idea terminal
+generate the .jar file for our  spring boot application by running below command 
+
+```
+gradle clean build
+```
+
+Step7: 
+Build your the docker image by running below command 
 
 ```bash
 docker build -t springbootstarter .
@@ -231,7 +305,7 @@ To verify
 docker images
 ```
 Step7:
-Start the springboot container on the same network
+Start the springboot container on the same network in detached mode exposing the host port and container port on 9090.
 
 
 ```bash
