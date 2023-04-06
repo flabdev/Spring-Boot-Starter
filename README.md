@@ -194,8 +194,11 @@ It will generate  .jar file for our application in build/libs/ subdirectory.
 along with this it will also generate JaCoco report, checkstyle report, pmd report for our application in below location  
 
 jacoco report location build/jacocoHtml/index.html
+
 checkstyle report location build/reports/checkstyle/main.html
+
 pmd report location pmd/build/reports/pmd/main.html
+
 jar file location build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar
 
 
