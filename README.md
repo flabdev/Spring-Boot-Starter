@@ -24,13 +24,13 @@ The template contains the following plugins:
     https://docs.gradle.org/current/userguide/checkstyle_plugin.html
 
     Performs code style checks on Java source files using Checkstyle and generates reports from these checks.
-    The checks are included in gradle's *check* task (you can run them by executing `./gradlew check` command).
+    You can run them by executing `gradlew clean build` command.
 
   * pmd
 
     https://docs.gradle.org/current/userguide/pmd_plugin.html
 
-    Performs static code analysis to finds common programming flaws. Included in gradle `check` task.
+    Performs static code analysis to finds common programming flaws. You can run them by executing `gradlew clean build` command.
 
 
   * jacoco
@@ -130,12 +130,24 @@ Navigate to root folder and open the terminal and execute below command
 gradle clean build or gradlew clean build
 
 ```
-It will generate JaCoco report, checkstyle report, pmd report as well as jar for our application 
+It will generate JaCoco report as well as jar for our application 
 
 jacoco report location build/jacocoHtml/index.html
 jar file location build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar
-checkstyle report location build/reports/checkstyle/main.html
-pmd report location pmd/build/reports/pmd/main.html
+
+Navigate to root folder and open the terminal and execute below command 
+
+```bash
+gradle clean build or gradlew clean build
+```
+The above command will generate checkstyle report which can be found in location:  build/reports/checkstyle/main.html
+
+Navigate to root folder and open the terminal and execute below command 
+
+```bash
+gradle clean build or gradlew clean build
+```
+The above command will generate pmd report which can be found in location :  build/reports/pmd/main.html
 
 Execute the below command
 ```bash
