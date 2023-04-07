@@ -211,7 +211,7 @@ java -jar build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar --spring.profile.act
 or 
 
 ```
-gradle bootRun --spring.profile.active=local --spring.config.location=@YourApplicationPropertiesLocation
+./gradlew bootRun --args='--spring.profiles.active=local --spring.config.location=@PropertiesFileLocation'
 ```
 App Will be run on port 9090 
 
