@@ -110,27 +110,17 @@ To check your code quality go to your browser
 where sonarqube is running http://localhost:9000
 go to your project and See the status of code
 
-
-
 ## Prerequisite
-JAVA 17 or Higher Version
 
+The following prerequisites are required for the template to function properly:
+ * Java 17 or above
+ * Gradle 8.x
+ * MySql 8.x
+ * SonarQube 9.9
+ * Checkstyle 7.8.1
+ * Pmd 6.37.0
 
-MySql 8.x Version
-
-SonarQube 9.9 Version 
-
-Gradle 8.x version 
-
-Checkstyle 7.8.1 version
-
-PMD 6.37.0 version 
-
-MySql 8.x Version 
-
-SonarQube 9.9 Version
-
-STS or IntelliJ Idea or Eclipse IDE
+## Setup
 
 **Clone the project to specified folder and import it into Your Favourite IDE**
 
@@ -138,7 +128,9 @@ STS or IntelliJ Idea or Eclipse IDE
 git clone https://github.com/flabdev/Spring-Boot-Starter.git
 ```
 
-**Setting Up Local Properties File**
+## Building and running the application
+
+### Setting Up Local Properties File
 
 In Your project go to src/main/resources 
 Copy the application.properties file in any location, rename to application-local.properties and add the necessary values in the file to setup mysql 
@@ -147,47 +139,59 @@ and other service
 
 ## Project execution 
 
-Navigate to root folder and open the terminal and execute below command 
+### Building the application
 
-To generate checkstyle report 
+The project uses [Gradle](https://gradle.org) as a build tool.
 
-We can run below command: 
+To build the project execute the following command:
 
-```  
-./gradlew checkstyleMain
+```bash
+  ./gradlew build
 ```
 
- The report will be created in build/reports/chekstyle/main.html location in your project directory.
+### Generating checkstyle report
 
-To generate pmd report
+To generate checkstyle report execute the following command:
 
-We can run below command: 
-
-```
-./gradlew pmdMain
+```bash
+  ./gradlew checkstyleMain
 ```
 
+The report will be created in build/reports/chekstyle/main.html location in your project directory.
 
-   The report will be created in build/reports/pmd/main.html location in your project directory.
+### Generating pmd report
+
+To generate pmd report execute the following command:
+
+```bash
+  ./gradlew pmdMain
+``` 
+
+The report will be created in build/reports/pmd/main.html location in your project directory.
     
+### Generating jacoco report
 
-To generate jacoco report 
+To generate jacoco report execute the following command:
 
-We can run below command:
-
-```
-./gradlew jacocoTestReport
-
-```
-
+```bash
+  ./gradlew jacocoTestReport
+``` 
 
 The report will be created in build/jacocoHtml/index.html location in your project directory.
 
-To create .jar file of our application we can use below command
+### Creating jar file
 
-```
-gradle clean build or gradlew clean build
-```
+To create .jar file of application execute the following command:
+
+```bash
+  ./gradlew clean build
+``` 
+
+or 
+
+```bash
+  ./gradle clean build
+``` 
 
 It will generate  .jar file for our application in build/libs/ subdirectory. 
 
@@ -201,18 +205,20 @@ pmd report location pmd/build/reports/pmd/main.html
 
 jar file location build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar
 
+### Running the application
 
-To Run our application execute the below command:
+To run the project execute the following command:
 
 ```bash
-java -jar build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar --spring.profile.active=local --spring.config.location=@YourApplicationPropertiesLocation
+  java -jar build/libs/Spring-Boot-Starter-0.0.1-SNAPSHOT.jar --spring.profile.active=local --spring.config.location=@YourApplicationPropertiesLocation
 ```
 
 or 
 
+```bash
+  ./gradlew bootRun --args='--spring.profiles.active=local --spring.config.location=@PropertiesFileLocation'
 ```
-./gradlew bootRun --args='--spring.profiles.active=local --spring.config.location=@PropertiesFileLocation'
-```
+
 App Will be run on port 9090 
 
 Open the Postman and verify 
